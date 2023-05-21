@@ -100,4 +100,22 @@ sound_btn.onclick = function () {
 };
 /* 끝 */
 
+/* 배너 열기/닫기 버튼 이벤트 핸들러 */
+toggle.onclick = function () {
+  var attr = banner.getAttribute("class"); //배너 객체 class 속성
+
+  if (attr == "active") {
+    //배너 닫기
+    banner.removeAttribute("class");
+    toggle.innerHTML = "배너 열기"; //버튼 text 변경
+    return false;
+  } else {
+    //배너열기
+    banner.setAttribute("class", "active");
+    toggle.innerHTML = "배너 닫기";
+    return false;
+  }
+};
+/* 끝 */
+
 /* ================================================================== */
