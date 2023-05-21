@@ -36,6 +36,31 @@ function ball_init() {
     img[i].style.top = "-9999px"; //풍선의 y좌표
   }
 }
-
-ball_init();
 /* 끝 */
+
+/* 풍선 애니메이션 */
+function animate_balloon() {
+  for (var i = 0; i < img.length; i++) {
+    //풍선 속성 변경
+    img[i].style.left = cast[i].x + "px"; //x좌표
+    img[i].style.top = cast[i].y + "px"; //y좌표
+    img[i].style.transform = "rorate(" + cast[i].angle + "deg)"; //회전
+
+    //풍선이 화면 안에 있으면
+    if (cast[i].y < parseInt(banner_height)) {
+      cast[i].y += 1 + cast[i].speed;
+      cast[i].angle += cast[i].speed;
+    } else {
+      //풍선이 화면 밖으로 나가면
+      set_balloon(i);
+    }
+  }
+}
+/* 끝 */
+
+/* 메인 */
+ball_init();
+setInterval(function () {
+  animate_balloon();
+}, 1000 / 30);
+/* 메인 끝 */
