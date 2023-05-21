@@ -67,6 +67,8 @@ function bgm_init() {
 }
 /* 끝 */
 
+/* ================================================================== */
+
 /* 메인 */
 ball_init();
 setInterval(function () {
@@ -74,3 +76,28 @@ setInterval(function () {
 }, 1000 / 30);
 bgm_init();
 /* 메인 끝 */
+
+/* ================================================================== */
+
+/* ================================================================== */
+
+/* 사운드버튼 이벤트 핸들러 */
+sound_btn.onclick = function () {
+  var attr = sound_btn.getAttribute("class"); //사운드 버튼 class 속성
+  var bgm = document.getElementsByTagName("audio"); //audio 객체
+
+  if (attr == "active") {
+    //사운드off
+    sound_btn.removeAttribute("class"); //클래스 제거
+    sound_btn.setAttribute("src", "IMG/sound_off.png"); //버튼 이미지 교체
+    bgm[0].pause(); //bgm정지
+  } else {
+    //사운드 on
+    sound_btn.setAttribute("class", "active");
+    sound_btn.setAttribute("src", "IMG/sound_on.png");
+    bgm[0].play(); //bgm재생
+  }
+};
+/* 끝 */
+
+/* ================================================================== */
