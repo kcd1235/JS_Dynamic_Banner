@@ -58,9 +58,19 @@ function animate_balloon() {
 }
 /* 끝 */
 
+/* 배경음악 처리 */
+function bgm_init() {
+  var bgm = new Audio();
+  bgm.src = "IMG/bgm.mp3";
+  bgm.loop = true;
+  document.body.appendChild(bgm);
+}
+/* 끝 */
+
 /* 메인 */
 ball_init();
 setInterval(function () {
   animate_balloon();
 }, 1000 / 30);
+bgm_init();
 /* 메인 끝 */
