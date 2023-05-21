@@ -118,4 +118,10 @@ toggle.onclick = function () {
 };
 /* 끝 */
 
+/* 배너 링크처리 */
+banner.onclick = function () {
+  window.open("https://csslick.github.io/", "_blank");
+};
+/* 끝 */
+
 /* ================================================================== */
