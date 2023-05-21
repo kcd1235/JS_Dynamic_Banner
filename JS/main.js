@@ -82,7 +82,7 @@ bgm_init();
 /* ================================================================== */
 
 /* 사운드버튼 이벤트 핸들러 */
-sound_btn.onclick = function () {
+sound_btn.onclick = function (event) {
   var attr = sound_btn.getAttribute("class"); //사운드 버튼 class 속성
   var bgm = document.getElementsByTagName("audio"); //audio 객체
 
@@ -97,6 +97,8 @@ sound_btn.onclick = function () {
     sound_btn.setAttribute("src", "IMG/sound_on.png");
     bgm[0].play(); //bgm재생
   }
+
+  event.stopPropagation();
 };
 /* 끝 */
 
